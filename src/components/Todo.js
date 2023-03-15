@@ -5,7 +5,7 @@ import { HiPlusCircle } from 'react-icons/hi';
 import TodoList from './TodoList';
 const Todo = () => {
   const [data, setDate] = useState([]);
-  const [input, setInput] = useState();
+  const [input, setInput] = useState('');
 
   const handleChange = event => {
     setInput(event.target.value);
@@ -21,7 +21,15 @@ const Todo = () => {
     setInput('');
   };
 
-  const todoElement = data.map(todo => <TodoList key={todo.id} {...todo} />);
+  const handleDelete = id => {
+    console.log(id);
+    const deleteData = data.filter(data => {
+      return data.id !== id;
+    });
+    setDate(deleteData);
+  };
+
+  const todoElement = data.map(todo => <TodoList key={todo.id} {...todo} handleDelete={() => handleDelete(todo.id)} />);
   return (
     <div className='w-[600px]'>
       <h1 className='text-6xl text-center font-bold text-gray-100'>Todos</h1>
