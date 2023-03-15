@@ -2,7 +2,7 @@ import Todo from './components/Todo';
 
 const App = () => {
   return (
-    <div>
+    <div className='flex justify-center mt-16'>
       <Todo />
     </div>
   );
