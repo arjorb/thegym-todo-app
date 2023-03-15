@@ -17,6 +17,7 @@ const Todo = () => {
       title: input,
       isChecked: false,
     };
+    if (input == '') return;
     setDate(prevData => [...prevData, newData]);
     setInput('');
   };
