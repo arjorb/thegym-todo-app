@@ -1,5 +1,6 @@
 import { HiPlusCircle } from 'react-icons/hi';
-import { FaTrash } from 'react-icons/fa';
+
+import TodoList from './TodoList';
 const Todo = () => {
   return (
     <div className='w-[600px]'>
@@ -8,6 +9,8 @@ const Todo = () => {
         <input type='text' placeholder='add todo...' className='w-full bg-transparent text-lg border-none outline-none placeholder:text-gray-200' />
         <HiPlusCircle size={30} className='cursor-pointer text-green-500' />
       </div>
+
+      <TodoList />
     </div>
   );
 };
