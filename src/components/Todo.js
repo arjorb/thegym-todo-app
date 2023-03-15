@@ -15,21 +15,27 @@ const Todo = () => {
     const newData = {
       id: nanoid(),
       title: input,
-      isCheked: false,
+      isChecked: false,
     };
     setDate(prevData => [...prevData, newData]);
     setInput('');
   };
 
+  const handleCompleted = id => {
+    const completed = data.map(data => {
+      return data.id === id ? { ...data, isChecked: !data.isChecked } : data;
+    });
+    setDate(completed);
+  };
+
   const handleDelete = id => {
-    console.log(id);
     const deleteData = data.filter(data => {
       return data.id !== id;
     });
     setDate(deleteData);
   };
 
-  const todoElement = data.map(todo => <TodoList key={todo.id} {...todo} handleDelete={() => handleDelete(todo.id)} />);
+  const todoElement = data.map(todo => <TodoList key={todo.id} {...todo} handleDelete={() => handleDelete(todo.id)} handleComplete={() => handleCompleted(todo.id)} />);
   return (
     <div className='w-[600px]'>
       <h1 className='text-6xl text-center font-bold text-gray-100'>Todos</h1>
