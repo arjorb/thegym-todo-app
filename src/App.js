@@ -1,5 +1,11 @@
+import Todo from './components/Todo';
+
 const App = () => {
-  return <h1 className='text-3xl flex justify-center text-[#007c55] font-bold'>Setting up the environment!</h1>;
+  return (
+    <div>
+      <Todo />
+    </div>
+  );
 };
 
 export default App;
