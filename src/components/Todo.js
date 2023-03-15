@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { HiPlusCircle } from 'react-icons/hi';
 
 import TodoList from './TodoList';
 const Todo = () => {
+  const [data, setDate] = useState([]);
   return (
     <div className='w-[600px]'>
       <h1 className='text-6xl text-center font-bold text-gray-100'>Todos</h1>
