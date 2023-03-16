@@ -30,8 +30,8 @@ const Todo = () => {
   };
 
   const handleDelete = id => {
-    const deleteData = data.filter(data => {
-      return data.id !== id;
+    const deleteData = data.filter(prevData => {
+      return prevData.id !== id;
     });
     setData(deleteData);
   };
