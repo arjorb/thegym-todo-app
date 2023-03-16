@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { HiPlusCircle } from 'react-icons/hi';
-import TodoList from './TodoList';
+import TodoItem from './TodoItem';
 
 const Todo = () => {
-  const [data, setDate] = useState([]);
+  const [data, setData] = useState([]);
   const [input, setInput] = useState('');
 
   const handleChange = event => {
@@ -18,25 +18,25 @@ const Todo = () => {
       isChecked: false,
     };
     if (input === '') return;
-    setDate(prevData => [...prevData, newData]);
+    setData(prevData => [...prevData, newData]);
     setInput('');
   };
 
   const handleCompleted = id => {
-    const completed = data.map(data => {
-      return data.id === id ? { ...data, isChecked: !data.isChecked } : data;
+    const completed = data.map(prevData => {
+      return prevData.id === id ? { ...prevData, isChecked: !prevData.isChecked } : prevData;
     });
-    setDate(completed);
+    setData(completed);
   };
 
   const handleDelete = id => {
     const deleteData = data.filter(data => {
       return data.id !== id;
     });
-    setDate(deleteData);
+    setData(deleteData);
   };
 
-  const todoElement = data.map(todo => <TodoList key={todo.id} {...todo} handleDelete={() => handleDelete(todo.id)} handleComplete={() => handleCompleted(todo.id)} />);
+  const todoElement = data.map(todo => <TodoItem key={todo.id} {...todo} handleDelete={() => handleDelete(todo.id)} handleComplete={() => handleCompleted(todo.id)} />);
   return (
     <div className='w-150'>
       <h1 className='text-6xl text-center font-bold text-gray-100'>Todos</h1>
