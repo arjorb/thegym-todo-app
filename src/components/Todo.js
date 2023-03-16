@@ -38,7 +38,7 @@ const Todo = () => {
 
   const todoElement = data.map(todo => <TodoList key={todo.id} {...todo} handleDelete={() => handleDelete(todo.id)} handleComplete={() => handleCompleted(todo.id)} />);
   return (
-    <div className='w-[600px]'>
+    <div className='w-150'>
       <h1 className='text-6xl text-center font-bold text-gray-100'>Todos</h1>
       <div className='flex gap-3 items-center py-3 px-7 rounded-full shadow-3xl mt-5'>
         <input type='text' placeholder='add todo...' onChange={handleChange} value={input} className='w-full bg-transparent text-lg border-none outline-none placeholder:text-gray-200' />
