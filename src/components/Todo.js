@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { nanoid } from 'nanoid';
 import { HiPlusCircle } from 'react-icons/hi';
-
 import TodoList from './TodoList';
+
 const Todo = () => {
   const [data, setDate] = useState([]);
   const [input, setInput] = useState('');
