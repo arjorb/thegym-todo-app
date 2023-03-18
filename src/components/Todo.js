@@ -7,9 +7,7 @@ const Todo = () => {
   const [data, setData] = useState([]);
   const [input, setInput] = useState('');
 
-  const handleChange = event => {
-    setInput(event.target.value);
-  };
+  const handleChange = event => setInput(event.target.value);
 
   const handleAdd = () => {
     const newData = {
